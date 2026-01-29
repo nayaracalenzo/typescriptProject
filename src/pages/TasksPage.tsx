@@ -10,9 +10,10 @@ const TasksPage = () => {
     status: "todo"
   }])
   return (
-    <div>
+    <main className="bg-[#3c3c3c] h-screen text-white p-30">
+      <h1 className="font-bold text-3xl text-center  pb-20 text-fuchsia-700">Lista de Tarefas</h1>
       <TaskList tasks={tasks}/>
-    </div>
+    </main>
   )
 }
 
