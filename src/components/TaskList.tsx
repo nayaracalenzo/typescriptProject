@@ -3,12 +3,12 @@ import TaskCard from "./TaskCard"
 
 
 
-const TaskList = ({tasks}: TaskProps) => {
+const TaskList = ({tasks, onDelete}: TaskProps) => {
   
   return (
     <div>
       {tasks.map((task)=> (
-        <TaskCard key={task.id} task={task} />
+        <TaskCard key={task.id} task={task} onDelete={onDelete} />
       ))}
     </div>
   )

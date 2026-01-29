@@ -9,9 +9,13 @@ const TasksPage = () => {
     priority: "high",
     status: "todo"
   }])
+
+  const deleteTask = (id: number) => { setTasks(prevTasks => prevTasks.filter(task => task.id !== id)) }
+
+
   return (
     <div>
-      <TaskList tasks={tasks}/>
+      <TaskList tasks={tasks} onDelete={deleteTask}/>
     </div>
   )
 }
