@@ -1,9 +1,17 @@
-import TaskCard from "../components/TaskCard"
+import { useState } from "react"
+import TaskList from "../components/TaskList"
+import type { ITask } from "../type/type"
 
 const TasksPage = () => {
+  const [tasks, setTasks] = useState<ITask[]>([{
+    id: 1,
+    title: "Estudar TypeScript",
+    priority: "high",
+    status: "todo"
+  }])
   return (
     <div>
-      <TaskCard/>
+      <TaskList tasks={tasks}/>
     </div>
   )
 }
