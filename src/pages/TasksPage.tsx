@@ -3,7 +3,7 @@ import TaskList from "../components/TaskList"
 import type { ITask, StatusFilter } from "../type/type"
 
 const TasksPage = () => {
-  const [tasks] = useState<ITask[]>([
+  const [tasks, setTasks] = useState<ITask[]>([
     {
       id: 1,
       title: "Estudar TypeScript",
@@ -24,6 +24,11 @@ const TasksPage = () => {
     if (filter === "all") return true
     return task.status === filter
   })
+   const deleteTask = (id: number) => { 
+    console.log(id)
+    setTasks(prevTasks => prevTasks.filter(task => task.id !== id)) 
+  }
+
 
   return (
     <div>
@@ -36,9 +41,9 @@ const TasksPage = () => {
         <option value="doing">Doing</option>
         <option value="done">Done</option>
       </select>
-      <TaskList tasks={filterTasks} />
+      <TaskList tasks={filterTasks} onDelete={deleteTask} />
     </div>
-  )
+  );
 }
 
 export default TasksPage
