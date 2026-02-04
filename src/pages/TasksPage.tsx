@@ -29,6 +29,14 @@ const TasksPage = () => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
+  const updateTaskTitle = (id: number, newTitle: string) => {
+  setTasks((prevTasks) =>
+    prevTasks.map((task) =>
+      task.id === id ? { ...task, title: newTitle } : task
+    )
+  );
+};
+
   return (
     <main className="bg-[#3c3c3c] h-screen text-white p-30 px-50 my-auto">
       <div className="flex justify-between items-center w-full ">
@@ -47,8 +55,11 @@ const TasksPage = () => {
         </select>
       </div>
       <div className="">
-        <TaskList tasks={filterTasks} onDelete={deleteTask} />
+        <TaskList tasks={filterTasks} onDelete={deleteTask} onUpdateTitle={updateTaskTitle} />
       </div>
+
+
+      
     </main>
   );
 };
